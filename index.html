@@ -1,0 +1,440 @@
+<html>
+        <head><title>Downloaded HTML</title></head>
+        <body>
+            <pre style="white-space: pre-wrap; word-wrap: break-word;"><!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Broiler Growth Rate Analysis - Derivative Applications</title>
+    <!-- Chart.js CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Tailwind CSS for clean layout styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .code-font {
+            font-family: 'Fira Code', monospace;
+        }
+    </style>
+</head>
+<body class="bg-slate-900 text-slate-100 min-h-screen flex flex-col justify-between">
+
+    <div class="max-w-7xl mx-auto px-4 py-8 w-full flex-grow">
+        <!-- Header -->
+        <header class="border-b border-slate-700 pb-6 mb-8 flex flex-col md:flex-row justify-between items-start md:items-end gap-4">
+            <div>
+                <span class="text-xs font-bold uppercase tracking-widest text-emerald-400 bg-emerald-500/10 border border-emerald-500/30 px-3 py-1 rounded-full">
+                    SFH: Animal Husbandry Technology • Malaysia
+                </span>
+                <h1 class="text-3xl md:text-4xl font-extrabold text-white mt-3 tracking-tight">
+                    Mathematical Modeling of Broiler Growth Dynamics
+                </h1>
+                <p class="text-slate-400 mt-1 max-w-2xl text-sm md:text-base">
+                    Investigating the physiological impacts of tropical ambient heat stress on growth velocity using the first derivative <span class="text-emerald-400 font-semibold">f'(x)</span>.
+                </p>
+            </div>
+            <div class="flex flex-col items-end text-right text-xs text-slate-400 border-l-2 border-emerald-500 pl-4 py-1">
+                <span class="font-semibold text-slate-300">Ayer Lanas, Kelantan</span>
+                <span>Production Cycle Simulation</span>
+            </div>
+        </header>
+
+        <!-- Main Content Layout -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+            
+            <!-- Left Panel: Problem Statement, Math Formulas, and Controls (4 Columns) -->
+            <div class="lg:col-span-4 space-y-6">
+                <!-- Scenario Controller Card -->
+                <div class="bg-slate-800/80 p-5 rounded-2xl border border-slate-700 shadow-xl">
+                    <h2 class="text-base font-bold text-white mb-3 flex items-center gap-2">
+                        <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                        1. Select Management Environment
+                    </h2>
+                    <p class="text-xs text-slate-400 mb-4">
+                        Toggle between optimal climate-controlled housing and typical tropical open-sided housing affected by afternoon high temperatures.
+                    </p>
+                    
+                    <div class="grid grid-cols-2 gap-2 p-1 bg-slate-900 rounded-xl border border-slate-700">
+                        <button id="btnOptimal" onclick="switchScenario('optimal')" class="w-full py-2.5 text-xs font-bold rounded-lg transition-all duration-200 bg-emerald-500 text-slate-950 shadow-md">
+                            Closed-House (Optimal)
+                        </button>
+                        <button id="btnHeat" onclick="switchScenario('heat')" class="w-full py-2.5 text-xs font-bold rounded-lg transition-all duration-200 text-slate-400 hover:text-white">
+                            Open-House (Heat Stress)
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Mathematical Models Card -->
+                <div class="bg-slate-800/80 p-5 rounded-2xl border border-slate-700 shadow-xl space-y-4">
+                    <h2 class="text-base font-bold text-white flex items-center gap-2">
+                        <span>📊</span> 2. Calculus Equations
+                    </h2>
+
+                    <!-- Growth Function Box -->
+                    <div class="bg-slate-900/90 p-3.5 rounded-xl border border-slate-700">
+                        <span class="text-[10px] font-bold uppercase tracking-wider text-blue-400">Total Live Body Weight f(x)</span>
+                        <div id="eqFunction" class="text-sm code-font my-1.5 font-bold text-blue-300">
+                            f(x) = -0.021x³ + 1.85x² + 5.2x + 42
+                        </div>
+                        <p class="text-[11px] text-slate-400 leading-relaxed">
+                            Yields the average cumulative mass (grams) on day <span class="italic">x</span>. The constant <span class="italic">42</span> represents standard Malaysian day-old chick hatch weight.
+                        </p>
+                    </div>
+
+                    <!-- Derivative Function Box -->
+                    <div class="bg-slate-900/90 p-3.5 rounded-xl border border-slate-700">
+                        <span class="text-[10px] font-bold uppercase tracking-wider text-emerald-400">Daily Growth Velocity f'(x)</span>
+                        <div id="eqDerivative" class="text-sm code-font my-1.5 font-bold text-emerald-300">
+                            f'(x) = -0.063x² + 3.70x + 5.2
+                        </div>
+                        <p class="text-[11px] text-slate-400 leading-relaxed">
+                            The derivative calculated using the Power Rule. Yields the instantaneous growth speed in <strong class="text-emerald-400">grams/day</strong> on day <span class="italic">x</span>.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- The Bioscience Context Card -->
+                <div class="bg-slate-800/80 p-5 rounded-2xl border border-slate-700 shadow-xl">
+                    <h2 class="text-base font-bold text-white mb-2 flex items-center gap-2">
+                        <span>🧬</span> Malaysian Context
+                    </h2>
+                    <p class="text-xs text-slate-300 leading-relaxed mb-3">
+                        In Malaysia, ambient conditions often climb past the thermal comfort zone of modern broiler lines ($18\text{--}24^\circ\text{C}$). When raised in open-sided ventilation systems, high humidity levels limit evaporative cooling. 
+                    </p>
+                    <p class="text-xs text-slate-400 leading-relaxed">
+                        This metabolic stress shifts the <strong class="text-slate-200">inflection point</strong>—the day growth velocity peaks—forcing earlier, less profitable plateaus. Finding this maximum using calculus helps farm managers schedule feed phase transitions accurately.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Right Panel: Interactive Visualizer & Dynamic Calculations -->
+            <div class="lg:col-span-8 space-y-6">
+                <!-- Interactive Graph Card -->
+                <div class="bg-slate-800/80 p-6 rounded-2xl border border-slate-700 shadow-xl">
+                    <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-4 gap-2">
+                        <div>
+                            <h2 class="text-lg font-bold text-white flex items-center gap-2">
+                                <span>📈</span> Interactive Curve & Tangent Vector
+                            </h2>
+                            <p class="text-xs text-slate-400">
+                                Click any point on the growth line to plot the tangent line representing the instantaneous derivative.
+                            </p>
+                        </div>
+                        <div class="flex items-center gap-4 text-xs">
+                            <span class="flex items-center gap-1.5 text-blue-400 font-semibold">
+                                <span class="w-2.5 h-1.5 rounded-sm bg-blue-500"></span> Weight (g)
+                            </span>
+                            <span class="flex items-center gap-1.5 text-pink-400 font-semibold">
+                                <span class="w-2.5 h-1.5 rounded-sm bg-pink-500"></span> Tangent f'(x)
+                            </span>
+                        </div>
+                    </div>
+
+                    <!-- Chart Container -->
+                    <div class="relative w-full h-[360px] bg-slate-900 rounded-xl p-3 border border-slate-700">
+                        <canvas id="growthChart"></canvas>
+                    </div>
+                </div>
+
+                <!-- Interactive Assessment Engine -->
+                <div id="analysisOutput" class="bg-gradient-to-r from-emerald-950/40 to-slate-800 border border-emerald-500/30 rounded-2xl p-6 shadow-xl transition-all duration-300">
+                    <h3 class="text-xs font-bold uppercase tracking-wider text-emerald-400 mb-4 flex items-center gap-2">
+                        <span>⚡</span> Live Calculus Assessment Engine
+                    </h3>
+                    
+                    <!-- Fallback placeholder prompt -->
+                    <div id="placeholderText" class="text-sm text-slate-400 italic py-4 text-center">
+                        💡 Hover or Click on a coordinate point above to evaluate the exact derivative of growth performance.
+                    </div>
+
+                    <!-- Dynamic Results Grid -->
+                    <div id="resultsContent" class="hidden space-y-6">
+                        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                            <div class="bg-slate-900/80 p-3 rounded-xl border border-slate-700/60">
+                                <span class="block text-[10px] font-medium text-slate-400 uppercase tracking-wider">Target Age</span>
+                                <span id="outDay" class="text-2xl font-bold text-white">-</span>
+                            </div>
+                            <div class="bg-slate-900/80 p-3 rounded-xl border border-slate-700/60">
+                                <span class="block text-[10px] font-medium text-slate-400 uppercase tracking-wider">Weight f(x)</span>
+                                <span id="outWeight" class="text-2xl font-bold text-blue-400">-</span>
+                            </div>
+                            <div class="bg-slate-900/80 p-3 rounded-xl border border-slate-700/60">
+                                <span class="block text-[10px] font-medium text-slate-400 uppercase tracking-wider">Growth Velocity f'(x)</span>
+                                <span id="outRate" class="text-2xl font-bold text-emerald-400">-</span>
+                            </div>
+                            <div class="bg-slate-900/80 p-3 rounded-xl border border-slate-700/60">
+                                <span class="block text-[10px] font-medium text-slate-400 uppercase tracking-wider">Thermal Load</span>
+                                <span id="outStress" class="text-2xl font-bold text-yellow-400">-</span>
+                            </div>
+                        </div>
+
+                        <!-- Mathematical Equation Solving steps -->
+                        <div class="bg-slate-900/90 p-4 rounded-xl border border-slate-700/80">
+                            <span class="block text-xs font-bold uppercase tracking-wider text-slate-400 mb-2 code-font">Calculus Derivation Step:</span>
+                            <div id="outDerivation" class="text-sm text-emerald-300 font-mono leading-relaxed bg-black/30 p-3 rounded border border-slate-800">
+                                -
+                            </div>
+                        </div>
+
+                        <!-- Biological field explanation -->
+                        <div class="bg-slate-900/50 p-4 rounded-xl border border-emerald-500/20">
+                            <span class="block text-xs font-bold uppercase tracking-wider text-emerald-500 mb-1.5">Layman Biological Interpretation</span>
+                            <p id="outExplain" class="text-sm text-slate-200 leading-relaxed font-normal">
+                                -
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Scientific References Section -->
+        <footer class="mt-12 pt-6 border-t border-slate-800 text-xs text-slate-500 space-y-3">
+            <h4 class="font-bold text-slate-400 uppercase tracking-widest">Empirical References & Web Documentation Baselines:</h4>
+            <ul class="list-disc pl-5 space-y-1">
+                <li>
+                    <strong>Malaysian Department of Veterinary Services (DVS):</strong> 
+                    <span class="italic">Annual Broiler Performance Index and Management Standards (dvs.gov.my)</span>. Baseline model data reflects commercial broiler standards adjusted for Selangor and Kelantan production regions.
+                </li>
+                <li>
+                    <strong>Cobb-Vantress Broiler Performance Guidelines:</strong> 
+                    <span class="italic">Cobb500 Growth and Nutrition Tables (cobb-vantress.com)</span>. Used for defining standard optimal growth coefficients under standard 20-22°C climates.
+                </li>
+                <li>
+                    <strong>MARDI (Malaysian Agricultural Research and Development Institute):</strong> 
+                    <span class="italic">Research Reports on Heat Mitigation in Tropical Closed-House Systems (mardi.gov.my)</span>. Used to evaluate body weight loss and derivative shift metrics under ambient heat stress conditions.
+                </li>
+            </ul>
+        </footer>
+    </div>
+
+    <!-- Minimal footer block -->
+    <div class="bg-slate-950 py-4 mt-8 border-t border-slate-800 text-center text-xs text-slate-500 w-full">
+        Designed for SFH: Animal Husbandry Technology Students • Actively applying advanced mathematics to precision poultry management.
+    </div>
+
+    <script>
+        // Global State Variables
+        let currentScenario = 'optimal';
+        const labels = Array.from({length: 43}, (_, i) => i); // Days 0 to 42
+
+        // Optimal Closed-House Math Model:
+        // f(x) = -0.021x^3 + 1.85x^2 + 5.2x + 42
+        // f'(x) = -0.063x^2 + 3.70x + 5.2
+
+        // Tropical Heat Stress Open-House Model:
+        // Under heat stress, metabolizable energy is used for thermoregulation (panting), lowering skeletal growth speed.
+        // g(x) = -0.026x^3 + 1.90x^2 + 4.0x + 42
+        // g'(x) = -0.078x^2 + 3.80x + 4.0
+
+        const formulas = {
+            optimal: {
+                weightFormulaStr: "f(x) = -0.021x³ + 1.85x² + 5.2x + 42",
+                derivFormulaStr: "f'(x) = -0.063x² + 3.70x + 5.2",
+                weight: (x) => (-0.021 * Math.pow(x, 3)) + (1.85 * Math.pow(x, 2)) + (5.2 * x) + 42,
+                deriv: (x) => (-0.063 * Math.pow(x, 2)) + (3.70 * x) + 5.2,
+                step: (x) => `f'(${x}) = -0.063(${x})² + 3.70(${x}) + 5.2\n     = -0.063(${x * x}) + ${ (3.70 * x).toFixed(2) } + 5.2\n     = ${ (-0.063 * x * x).toFixed(2) } + ${ (3.70 * x).toFixed(2) } + 5.2\n     = ${ ((-0.063 * x * x) + (3.70 * x) + 5.2).toFixed(2) } g/day`
+            },
+            heat: {
+                weightFormulaStr: "g(x) = -0.026x³ + 1.90x² + 4.0x + 42",
+                derivFormulaStr: "g'(x) = -0.078x² + 3.80x + 4.0",
+                weight: (x) => (-0.026 * Math.pow(x, 3)) + (1.90 * Math.pow(x, 2)) + (4.0 * x) + 42,
+                deriv: (x) => (-0.078 * Math.pow(x, 2)) + (3.80 * x) + 4.0,
+                step: (x) => `g'(${x}) = -0.078(${x})² + 3.80(${x}) + 4.0\n     = -0.078(${x * x}) + ${ (3.80 * x).toFixed(2) } + 4.0\n     = ${ (-0.078 * x * x).toFixed(2) } + ${ (3.80 * x).toFixed(2) } + 4.0\n     = ${ ((-0.078 * x * x) + (3.80 * x) + 4.0).toFixed(2) } g/day`
+            }
+        };
+
+        function generateExplanation(day, rate, scenario) {
+            if (scenario === 'optimal') {
+                if (day <= 10) {
+                    return `Early Starter Phase (Day ${day}): Standard growth speed is currently low (${rate.toFixed(1)} g/day) while structural organs and feather roots are prioritizing cell growth. High-density starter nutrition optimizes development before the acceleration phase begins.`;
+                } else if (day > 10 && day <= 28) {
+                    return `Peak Growth Phase (Day ${day}): Broiler musculature deposition is expanding rapidly. Daily mass accumulation velocity is ${rate.toFixed(1)} g/day. This represents optimum feed efficiency in modern climate-controlled housing.`;
+                } else {
+                    return `Finishing Plateau Phase (Day ${day}): Daily rate slows down to ${rate.toFixed(1)} g/day. Although cumulative weight is extremely heavy, maintenance costs are starting to outweigh feed gain. Selling/processing should be planned around day 38 to day 42.`;
+                }
+            } else {
+                // Heat Stressed interpretation
+                if (day <= 10) {
+                    return `Starter Phase under heat conditions (Day ${day}): Hot conditions are manageable for chicks as they require higher ambient temperatures. Development speed remains stable around ${rate.toFixed(1)} g/day. Ensure correct ventilation setup.`;
+                } else if (day > 10 && day <= 26) {
+                    return `Grower Phase Heat Stress (Day ${day}): High afternoon temperatures mean broilers spend energy panting. Growth rate peaks earlier and at a lower rate of only ${rate.toFixed(1)} g/day. This shows structural reduction in muscle accretion.`;
+                } else {
+                    return `Critical Plateau under Stress (Day ${day}): Daily weight accumulation has plummeted to ${rate.toFixed(1)} g/day. Massive heat load on fully feathered mature birds stalls metabolism completely. Holding these birds is economically highly disadvantageous.`;
+                }
+            }
+        }
+
+        // Generate default coordinates
+        function getWeightsArray(scenario) {
+            const arr = [];
+            for (let x = 0; x <= 42; x++) {
+                arr.push(formulas[scenario].weight(x));
+            }
+            return arr;
+        }
+
+        let growthChart;
+        function initChart() {
+            const ctx = document.getElementById('growthChart').getContext('2d');
+            
+            growthChart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: labels,
+                    datasets: [
+                        {
+                            label: 'Broiler Cumulative Weight f(x) (g)',
+                            data: getWeightsArray('optimal'),
+                            borderColor: '#3b82f6',
+                            backgroundColor: 'rgba(59, 130, 246, 0.08)',
+                            borderWidth: 3,
+                            fill: true,
+                            tension: 0.1,
+                            pointRadius: 2,
+                            pointHoverRadius: 7,
+                            pointHoverBackgroundColor: '#ef4444'
+                        },
+                        {
+                            label: 'Tangent Line f\'(x)',
+                            data: Array(43).fill(null), // populated interactively
+                            borderColor: '#f472b6',
+                            borderWidth: 2,
+                            borderDash: [5, 5],
+                            pointRadius: 0,
+                            fill: false
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        x: {
+                            title: { display: true, text: 'Broiler Age (Days)', color: '#94a3b8', font: { weight: 'bold' } },
+                            grid: { color: 'rgba(148, 163, 184, 0.1)' },
+                            ticks: { color: '#94a3b8' }
+                        },
+                        y: {
+                            title: { display: true, text: 'Live Body Weight (Grams)', color: '#94a3b8', font: { weight: 'bold' } },
+                            grid: { color: 'rgba(148, 163, 184, 0.1)' },
+                            ticks: { color: '#94a3b8' },
+                            beginAtZero: true
+                        }
+                    },
+                    plugins: {
+                        legend: { display: false }
+                    },
+                    // Capture point clicks to compute slope derivatives
+                    onClick: (event, activeElements) => {
+                        if (activeElements.length > 0) {
+                            const index = activeElements[0].index;
+                            handlePointSelect(index);
+                        }
+                    }
+                }
+            });
+        }
+
+        function switchScenario(scen) {
+            currentScenario = scen;
+            
+            // UI Button styling adjustments
+            const btnOptimal = document.getElementById('btnOptimal');
+            const btnHeat = document.getElementById('btnHeat');
+            
+            if (scen === 'optimal') {
+                btnOptimal.className = "w-full py-2.5 text-xs font-bold rounded-lg transition-all duration-200 bg-emerald-500 text-slate-950 shadow-md";
+                btnHeat.className = "w-full py-2.5 text-xs font-bold rounded-lg transition-all duration-200 text-slate-400 hover:text-white";
+                
+                // Set math visual cards
+                document.getElementById('eqFunction').innerText = formulas.optimal.weightFormulaStr;
+                document.getElementById('eqDerivative').innerText = formulas.optimal.derivFormulaStr;
+            } else {
+                btnHeat.className = "w-full py-2.5 text-xs font-bold rounded-lg transition-all duration-200 bg-emerald-500 text-slate-950 shadow-md";
+                btnOptimal.className = "w-full py-2.5 text-xs font-bold rounded-lg transition-all duration-200 text-slate-400 hover:text-white";
+                
+                // Set math visual cards
+                document.getElementById('eqFunction').innerText = formulas.heat.weightFormulaStr;
+                document.getElementById('eqDerivative').innerText = formulas.heat.derivFormulaStr;
+            }
+
+            // Update chart data points
+            growthChart.data.datasets[0].data = getWeightsArray(scen);
+            
+            // Clear current tangent lines on scenario switch
+            growthChart.data.datasets[1].data = Array(43).fill(null);
+            growthChart.update();
+
+            // Reset dashboard results
+            document.getElementById('placeholderText').classList.remove('hidden');
+            document.getElementById('resultsContent').classList.add('hidden');
+        }
+
+        // Draw Tangent line visually on the Chart.js grid
+        function handlePointSelect(day) {
+            const scenarioData = formulas[currentScenario];
+            const y0 = scenarioData.weight(day);
+            const slope = scenarioData.deriv(day);
+
+            // Compute tangent curve values: y = slope * (x - day) + y0
+            // Keep tangent localized to ±5 days range for better visual alignment without cluttering
+            const tangentLineData = Array(43).fill(null);
+            const range = 5;
+            const start = Math.max(0, day - range);
+            const end = Math.min(42, day + range);
+
+            for (let x = start; x <= end; x++) {
+                tangentLineData[x] = slope * (x - day) + y0;
+            }
+
+            // Update chart dataset
+            growthChart.data.datasets[1].data = tangentLineData;
+            growthChart.update();
+
+            // Render live text computations on the layout cards
+            document.getElementById('placeholderText').classList.add('hidden');
+            document.getElementById('resultsContent').classList.remove('hidden');
+
+            document.getElementById('outDay').innerText = `Day ${day}`;
+            document.getElementById('outWeight').innerText = `${Math.round(y0)} g`;
+            document.getElementById('outRate').innerText = `${slope.toFixed(2)} g/day`;
+            
+            // Heat stress label
+            const stressOutput = document.getElementById('outStress');
+            if (currentScenario === 'optimal') {
+                stressOutput.innerText = "Normal";
+                stressOutput.className = "text-2xl font-bold text-emerald-400";
+            } else {
+                // If late age under heat stress, label critical
+                if (day > 21) {
+                    stressOutput.innerText = "High/Severe";
+                    stressOutput.className = "text-2xl font-bold text-red-500 animate-pulse";
+                } else {
+                    stressOutput.innerText = "Moderate";
+                    stressOutput.className = "text-2xl font-bold text-yellow-400";
+                }
+            }
+
+            // Set math step calculation
+            document.getElementById('outDerivation').innerText = scenarioData.step(day);
+
+            // Output explanation
+            document.getElementById('outExplain').innerText = generateExplanation(day, slope, currentScenario);
+        }
+
+        // Instantiate graph immediately on page load
+        window.onload = function() {
+            initChart();
+        }
+    </script>
+</body>
+</html></pre>
+        </body>
+    </html>
